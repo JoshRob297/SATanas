@@ -1,0 +1,23 @@
+SELECTORS = {
+    "portal_cfdi": {
+        "url": "https://portalcfdi.facturaelectronica.sat.gob.mx/",
+        "login_ready": "#rfc",
+        "rfc_input": "#rfc",
+        "pass_input": "#password",
+        "captcha_input": "#userCaptcha",
+        "captcha_img": "#divCaptcha img",
+        "submit_btn": "#submit",
+        "form": "#IDPLogin",
+        "max_attempts": 3,
+        "consulta_receptor": "ConsultaReceptor.aspx",
+        "radio_fecha": "#ctl00_MainContent_RdoFechas",
+        "sel_anio": "#DdlAnio",
+        "sel_mes": "#ctl00_MainContent_CldFecha_DdlMes",
+        "sel_estado": "#ctl00_MainContent_DdlEstadoComprobante",
+        "estado_vigente": "1",
+        "btn_buscar": "#ctl00_MainContent_BtnBusqueda",
+        "btn_descargar": "#ctl00_MainContent_BtnDescargar",
+        "btn_descargar_ri": "#ctl00_MainContent_BtnDescargarRi",
+        "checkbox_sel": "#seleccionador",
+    },
+}
