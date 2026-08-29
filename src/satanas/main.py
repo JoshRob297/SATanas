@@ -55,7 +55,7 @@ async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception:
         pass
     
-    total_local = len(store.get_all())
+    total_local = store.count_all()
     text = (
         f"{ui.render_header('Inicio')}\n\n"
         f"Bienvenido. Tu almacén local está disponible.\n"
@@ -88,7 +88,7 @@ async def cmd_cancel(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         update,
         st,
         f"{ui.render_header('Operación Cancelada')}\n\nOperación cancelada. Dashboard listo.",
-        ui.menu_main(len(store.get_all())),
+        ui.menu_main(store.count_all()),
     )
 
 
@@ -107,7 +107,7 @@ async def cmd_recibos(update: Update, ctx: ContextTypes.DEFAULT_TYPE, anio_req: 
         
     anio_activo = anio_req if anio_req and anio_req in anios else anios[0]
     
-    total_local = len(store.get_all())
+    total_local = store.count_all()
     pendientes = store.count_pendientes()
     extra_pend = f" (⚠️ {pendientes} pendientes de descarga)" if pendientes > 0 else ""
     
@@ -146,7 +146,7 @@ async def cmd_sync(update: Update, ctx: ContextTypes.DEFAULT_TYPE, months: list 
             update,
             st,
             f"{ui.render_header('Configuración')}\n\nFaltan credenciales en la configuración.",
-            ui.menu_main(len(store.get_all())),
+            ui.menu_main(store.count_all()),
         )
         return
     st.phase = PHASE_SYNC
@@ -245,14 +245,14 @@ async def finish_sync(task, uid, st, update):
             st,
             f"{ui.render_header('Sincronización')}\n\n"
             f"<b>Sync completado</b>\n\n{resumen}",
-            ui.menu_main(len(store.get_all())),
+            ui.menu_main(store.count_all()),
         )
     else:
         await ui.ensure_canvas(
             update,
             st,
             f"{ui.render_header('Error')}\n\n<b>Fallo del proceso:</b>\n{payload}",
-            ui.menu_main(len(store.get_all())),
+            ui.menu_main(store.count_all()),
         )
 
 
@@ -302,7 +302,7 @@ async def on_text(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         update,
         st,
         f"{ui.render_header('Inicio')}\n\nUsa los botones de abajo para navegar:",
-        ui.menu_main(len(store.get_all())),
+        ui.menu_main(store.count_all()),
     )
 
 
@@ -316,7 +316,7 @@ async def handle_nav(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     await q.answer()
 
     if data == "nav:menu":
-        total_local = len(store.get_all())
+        total_local = store.count_all()
         text = (
             f"{ui.render_header('Inicio')}\n\n"
             f"Bienvenido. Tu almacén local está disponible.\n"

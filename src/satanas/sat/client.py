@@ -278,13 +278,12 @@ class CfdiPortalClient:
         page.select_option(self.sel["sel_mes"], f"{mes:02d}")
         page.select_option(self.sel["sel_estado"], self.sel["estado_vigente"])
         page.click(self.sel["btn_buscar"])
-        # La tabla se llena vía AJAX (UpdatePanel); esperar a que aparezcan resultados
+        # La tabla se llena vía AJAX (UpdatePanel); esperar a que aparezcan resultados o aviso de vacío
         try:
-            page.wait_for_selector("input.ListaFolios", timeout=60000)
+            page.wait_for_selector("input.ListaFolios, #ctl00_MainContent_LblError, #ctl00_MainContent_divSinResultados", timeout=25000)
         except PlaywrightTimeout:
-            # Posiblemente sin resultados: intentar detectar mensaje de vacío
             pass
-        page.wait_for_timeout(2000)
+        page.wait_for_timeout(1000)
 
         rows = []
         seen: set[str] = set()

@@ -117,9 +117,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/root/proyectos/SATanas
-ExecStart=/root/proyectos/SATanas/venv/bin/python -m satanas.main
+User=tu_usuario
+WorkingDirectory=/ruta/a/SATanas
+ExecStart=/ruta/a/SATanas/venv/bin/python -m satanas.main
 Restart=always
 RestartSec=10
 

@@ -113,6 +113,11 @@ class CfdiStore:
             )
             self._conn.commit()
 
+    def count_all(self) -> int:
+        with self._lock:
+            row = self._conn.execute("SELECT COUNT(*) AS n FROM cfdis").fetchone()
+            return row["n"] if row else 0
+
     def count_pendientes(self) -> int:
         with self._lock:
             row = self._conn.execute(
