@@ -1,4 +1,12 @@
-# 🏛️ SATanas (v1.0.0)
+# 🏛️ SATanas
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version 1.0.0" />
+  <img src="https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue?logo=python" alt="Python Versions" />
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT" />
+  <img src="https://img.shields.io/badge/Architecture-On--Demand-orange.svg" alt="On-Demand" />
+  <img src="https://img.shields.io/badge/SAT-CFDI%204.0%20%26%20Nómina-purple.svg" alt="SAT CFDI" />
+</p>
 
 **SATanas** es un bot de Telegram profesional, seguro y *On-Demand* diseñado para descargar, organizar y gestionar comprobantes fiscales (CFDI / Recibos de Nómina) en formato PDF y XML directamente desde el portal oficial del SAT (Servicio de Administración Tributaria de México).
 

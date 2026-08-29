@@ -1,0 +1,56 @@
+name: "🐛 Reporte de Bug"
+description: "Crea un reporte de error para ayudar a mejorar SATanas"
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por tomarte el tiempo de reportar este problema!
+        *Por favor, asegúrate de NO incluir contraseñas, tokens ni datos fiscales en este formulario.*
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del problema
+      description: Explica de forma clara qué está sucediendo.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      description: ¿Cómo podemos reproducir este comportamiento?
+      placeholder: |
+        1. Iniciar el bot con `/start`
+        2. Tocar en el botón '...'
+        3. Ocurre el error...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Fragmento de Logs Relevante
+      description: Pega aquí los logs de error (omitiendo información personal sensible).
+      render: shell
+  - type: dropdown
+    id: python-version
+    attributes:
+      label: Versión de Python
+      options:
+        - "3.10"
+        - "3.11"
+        - "3.12"
+        - "Otra"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Sistema Operativo
+      options:
+        - "Linux (Debian/Ubuntu)"
+        - "Linux (Arch/Fedora/Otro)"
+        - "macOS"
+        - "Windows"
+    validations:
+      required: true

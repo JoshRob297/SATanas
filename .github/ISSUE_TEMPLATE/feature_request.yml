@@ -1,0 +1,30 @@
+name: "✨ Solicitud de Funcionalidad"
+description: "Propón una nueva idea o mejora para SATanas"
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¿Tienes una gran idea para enriquecer SATanas? ¡Nos encantaría conocerla!
+  - type: textarea
+    id: problem
+    attributes:
+      label: ¿Tu sugerencia está relacionada con un problema existente?
+      description: Una descripción clara de cuál es la limitación actual.
+    validations:
+      required: false
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solución propuesta
+      description: Describe cómo te gustaría que funcione esta nueva característica.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: ¿Has pensado en otras opciones o soluciones complementarias?
+    validations:
+      required: false
